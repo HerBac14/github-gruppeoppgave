@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Gjett ordet spillet</title>
+    <link rel="Stylesheet" href="../../kap4/Oppgaver%20uke%202/style_oppgaver.css">
+</head>
+<body>
+
+<div id="hoved">
+    <a class="reset_side">Reset</a>
+    <h1>Gjett ordet spillet</h1>
+    <div class="info">
+        <p> I dette spillet er det bare lov å gjette en bokstav. <br> Du har fem liv og du kan se hvor mange bokstaver du har nedenfor.</p>
+    </div>
+
+    <div class="innput">
+        <label for="bokstav"></label>
+        <input type="text" id="bokstav">
+
+        <button id="send_inn">Send</button>
+
+        <div id="liv">
+            <p class="gronn-en">Liv</p>
+            <p class="gronn-to">Liv</p>
+            <p class="gronn-tre">Liv</p>
+            <p class="gronn-fire">Liv</p>
+            <p class="gronn-fem">Liv</p>
+        </div>
+    </div>
+
+    <div class="losningsord_box">
+        <p class="beskjed"></p>
+    </div>
+
+    <div class="gjettede_bokstaver">
+        <p class="hvor_mange">Du har gjettet 0 bokstaver</p>
+        <p>Bokstavene er:</p>
+        <p class="bokstavene"></p>
+        <p class="feil">Du har 0 feil</p>
+        <h2 class="riktig_svar"></h2>
+    </div>
+
+</div>
+
+
+<script>
+
+
+    //reset knapp
+    let resetEl = document.querySelector(".reset_side")
+    resetEl.addEventListener("click", resetSiden)
+
+    function resetSiden() {
+        window.location.href="index_oppgaver.html"
+    }
+
+    //legge til løsningsord.
+    //let losningsord = ["l","e","k","s","i","k","o","n"];
+    let losningsord = ["b","e","r","g","e","n"]
+    //let losningsord = ["v"]
+    //let losningsord = ["k","l","o","a","k","k","e","n"];
+    // legger til elektorer og arrayer
+    let losningEl = document.querySelector(".beskjed");
+    let gjettedeBokstaver = []
+    let riktigeBokstaver = []
+    let bokstaveneEL = document.querySelector(".bokstavene")
+    let antallbokstaverEL = document.querySelector(".hvor_mange")
+    let sistebeskjed = document.querySelector("h2")
+    let anntallFeil = 0
+    let check = []
+    let feilEl = document.querySelector(".feil")
+
+    //legger til liv
+    let liv1 = document.querySelector(".gronn-en")
+    let liv2 = document.querySelector(".gronn-to")
+    let liv3 = document.querySelector(".gronn-tre")
+    let liv4 = document.querySelector(".gronn-fire")
+    let liv5 = document.querySelector(".gronn-fem")
+
+    //legger til en fasit
+    let fasit = losningsord
+    let fasit_lengde = fasit.length
+
+    //lager både check box og riktigebokstaver box
+    for (let i = 0; i < fasit_lengde; i++) {
+        riktigeBokstaver.push("_ ")
+        check.push("_ ")
+    }
+
+    //legger ut alle de riktige bokstavene på siden
+    for (let i = 0; i < riktigeBokstaver.length; i++) {
+        losningEl.innerHTML += riktigeBokstaver[i]
+    }
+
+    //legger til elektorer for innputt og legger til lytter på knappen
+    let bokstavEl = document.querySelector("input");
+    let send_inn_knappEL = document.querySelector("#send_inn");
+
+    send_inn_knappEL.addEventListener("click", send_innFu);
+
+    //funksjonen som blir trigga av knappen
+    function send_innFu() {
+        let bokstav = bokstavEl.value
+        gjettedeBokstaver.push(bokstav)
+        bokstaveneEL.innerHTML = gjettedeBokstaver
+        let anntall_bokstaver = gjettedeBokstaver.length
+        antallbokstaverEL.innerHTML = "Du har gjettet " + anntall_bokstaver + " bokstaver";
+
+        for (let i = 0; i < fasit_lengde; i++) {
+            if (fasit[i] === bokstav) {
+                console.log(bokstav)
+                console.log(i)
+                //legger til riktig bokstaver i svar
+                //riktigeBokstaver.splice(i, 1)
+                //riktigeBokstaver.splice(i, 0, bokstav)
+                riktigeBokstaver.splice(i, 1, bokstav)
+                console.log(riktigeBokstaver)
+                losningEl.innerHTML = ""
+                for (let i = 0; i < riktigeBokstaver.length; i++) {
+                    losningEl.innerHTML += riktigeBokstaver[i]
+                }
+            }
+        }
+        // gjør om arrayene til vanig text for å analysere dem
+        let s1 = ""
+        let s2 = ""
+        let s3 = ""
+        for (let i = 0; i < riktigeBokstaver.length; i++) {
+            s1 += riktigeBokstaver[i]
+            s2 += fasit[i]
+            s3 += check[i]
+        }
+        console.log(s3);
+        // ser om alle bokstavene er riktig. Hvis dette stemmer har du vunnet
+        if (s1 === s2) {
+            sistebeskjed.innerHTML = "Bra jobbet! Du vant!";
+            send_inn_knappEL.removeEventListener("click", send_innFu)
+        }
+        if (s1 === s3) {
+            //ser om Check og bokstavene som er riktige er like. hvis de er det betyr det at det er feil.
+            anntallFeil++;
+            feilEl.innerHTML= "Du har " + anntallFeil + " feil";
+            console.log("feil" + anntallFeil)
+        }
+
+        if (s1 !== s3) {
+            for (let i = 0; i < fasit_lengde; i++) {
+                if (fasit[i] === bokstav) {
+                    check.splice(i, 1)
+                    check.splice(i, 0, bokstav)
+                    console.log("her" + s3);
+                }
+            }
+        }
+        //ser hvilken liv-boks som skal bli rød
+        if (anntallFeil >= 1) {liv1.className = "rod";}
+        if (anntallFeil >= 2) {liv2.className = "rod";}
+        if (anntallFeil >= 3) {liv3.className = "rod";}
+        if (anntallFeil >= 4) {liv4.className = "rod";}
+        if (anntallFeil >= 5) {liv5.className = "rod";}
+
+        if (anntallFeil === 5) {
+            sistebeskjed.className = "feil_svar";
+            sistebeskjed.innerHTML = "Du tapte!" + " Riktig svar var " + s2;
+            send_inn_knappEL.removeEventListener("click", send_innFu)
+        }
+    }
+
+
+</script>
+</body>
+</html>
