@@ -1,0 +1,152 @@
+
+[class *= "gronn-"]{
+    background: #2ECC71;
+}
+
+.rod {
+    background: #E74C3C;
+}
+
+.reset_side{
+    position: fixed;
+    left: 12%;
+    top: 5%;
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:5px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.reset_side:hover {
+    color:#000000;
+    background-color:#FFFFFF;
+}
+
+#send_inn {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:5px;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+#send_inn:hover {
+    color:#000000;
+    background-color:#FFFFFF;
+}
+
+#hoved {
+    position: absolute;
+    padding-bottom: 50px;
+    left: 10%;
+    width: 80%;
+    border: black outset 2px;
+    border-radius: 5px;
+    background-color: #5588AA;
+    text-align: center
+}
+
+#liv {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 60%;
+    position: relative;
+    left: 20%;
+    padding: 5px;
+    border: black dashed 2px;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+.beskjed {
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+}
+#bokstav {
+    font-family: Arial, sans-serif;
+}
+
+.losningsord_box {
+    position: relative;
+    left: 10%;
+    width: 60%;
+    border: black outset 2px;
+    border-radius: 5px;
+    text-align: center;
+    background: lightgray;
+    font-family: Arial, sans-serif;
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.gjettede_bokstaver {
+    position: absolute;
+    left: 75%;
+    width: 10%;
+    top: 20%;
+    border: black outset 2px;
+    border-radius: 5px;
+    text-align: center;
+    background: lightgray;
+    padding: 10px;
+    height: 390px;
+}
+
+h1 {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 45px;
+    word-spacing: -4.6px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+.riktig_svar {
+    padding: 10px;
+    color: #2ECC71;
+}
+
+.feil_svar {
+    padding: 10px;
+    color: #E74C3C;
+}
+
+.info {
+    position: relative;
+    left: 10%;
+    width: 60%;
+    border: black outset 2px;
+    border-radius: 5px;
+    background: lightgray;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    padding: 10px;
+}
+
+.innput {
+    margin-top: 25px;
+    position: relative;
+    left: 10%;
+    width: 60%;
+}
+
