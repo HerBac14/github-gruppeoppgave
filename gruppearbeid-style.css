@@ -150,3 +150,44 @@ h1 {
     width: 60%;
 }
 
+[class *= "spill-"]{
+    background: lightblue;
+    border: black solid 1px;
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+    text-align: center;
+}
+
+#nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #575956;
+    height: 40px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px 5px 5px 0;
+
+}
+#nav > a {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 25px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+#nav :hover {
+    color:white;
+    background-color:#777775;
+}
+
+#spillOversikt {
+    display: flex;
+    width: 60%;
+    position: relative;
+    left: 25%;
+    border: black solid 2px;
+    padding: 20px;
+    margin-top: 20px;
+}
