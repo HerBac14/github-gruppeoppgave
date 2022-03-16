@@ -3,14 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Minispill</title>
+    <link rel="Stylesheet" href="gruppearbeid-style.css">
 </head>
 <body>
-<h1>Minispill</h1>
-    <p>Herman er best</p>
-    <p>Men jeg er best</p>
-    <p>Nei jeg er best</p>
-    <a href="minispill-hermanlb.html">Herman sitt spill</a>
-    <a href="minispill-jens_herman.html">jens_herman</a>
+<div id="nav">
+    <a id="hjem" href="index.html">Hjem</a>
+    <a id="politikere" href="vurdering.html">Vurdering</a>
+</div>
 
+<div id="spillOversikt">
+    <div class="spill-1">
+        <p>Gjett ordet</p>
+    </div>
+    <div class="spill-2">
+        <p>Maze</p>
+    </div>
+</div>
+
+<script>
+    //Knapper til å gå til spill
+    //spill 1
+    let spillEl1 = document.querySelector(".spill-1")
+    spillEl1.addEventListener("click", gåTilSpill1)
+
+    function gåTilSpill1() {
+        window.location.href="minispill-hermanlb.html"
+    }
+
+    // spill 2
+    let spillEl2 = document.querySelector(".spill-2")
+    spillEl2.addEventListener("click", gåTilSpill2)
+
+    function gåTilSpill2() {
+        window.location.href="minispill-jens_herman.html"
+    }
+
+</script>
 </body>
 </html>
