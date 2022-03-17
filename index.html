@@ -9,7 +9,7 @@
 <h3>Minispill123.io</h3>
 <div id="nav">
     <a id="hjem" href="index.html">Hjem</a>
-    <a id="politikere" href="sammarbeids-vurdering.html">Vurdering</a>
+    <a id="politikere" href="vurdering.html">Vurdering</a>
 </div>
 
 <div id="spillOversikt">
@@ -18,6 +18,9 @@
     </div>
     <div class="spill-2">
         <img src="Bilder/jens-spill.PNG">
+    </div>
+    <div class="spill-3">
+        <img src="Bilder/oliver-spill.JPG">
     </div>
 </div>
 
@@ -37,6 +40,14 @@
 
     function gåTilSpill2() {
         window.location.href="minispill-jens_herman.html"
+    }
+
+    // spill 3
+    let spillEl3 = document.querySelector(".spill-3")
+    spillEl3.addEventListener("click", gåTilSpill3)
+
+    function gåTilSpill3() {
+        window.location.href="minispill-oliver.html"
     }
 
 </script>
