@@ -9,6 +9,7 @@
 
 <div id="hoved">
     <a class="reset_side">Reset</a>
+    <a class="tilbake_side">Tilbake</a>
     <h1>Gjett ordet spillet</h1>
     <div class="info">
         <p> I dette spillet er det bare lov å gjette en bokstav. <br> Du har fem liv og du kan se hvor mange bokstaver du har nedenfor.</p>
@@ -53,6 +54,14 @@
 
     function resetSiden() {
         window.location.href="index_oppgaver.html"
+    }
+
+    //knapp tilbake til hovedsiden
+    let tilbakeEl = document.querySelector(".tilbake_side")
+    tilbakeEl.addEventListener("click", tilbake)
+
+    function tilbake() {
+        window.location.href="index.html"
     }
 
     //legge til løsningsord.
