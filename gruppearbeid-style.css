@@ -186,11 +186,10 @@ h1 {
 #nav {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background-color: #575956;
+    background-color: #037eb6;
     height: 40px;
-    margin-top: 5px;
     padding: 5px;
-    border-radius: 5px 5px 5px 0;
+    border-radius: 0 5px 5px 5px;
 
 }
 #nav > a {
@@ -210,9 +209,9 @@ h1 {
     display: flex;
     width: 60%;
     position: relative;
-    left: 25%;
-    border: black solid 2px;
-    padding: 20px;
+    left: 20%;
+    border: none;
+    padding: 0;
     margin-top: 20px;
 }
 
@@ -223,10 +222,15 @@ img {
 
 h3 {
     left: 10%;
-    background: #575956;
+    background: #037eb6;
     color: whitesmoke;
     width: min-content;
     padding: 10px;
     border-radius: 5px 5px 0 0;
+    font-size: 30px;
+}
+h4 {
+    position: relative;
+    left: 22%;
     font-size: 30px;
 }
